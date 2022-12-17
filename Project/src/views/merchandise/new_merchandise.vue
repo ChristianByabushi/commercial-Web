@@ -3,7 +3,7 @@
     <form @submit.prevent="submit_merchandise()" method="post">
       <v-text-field v-model="title" :counter="255" required label="Name">
       </v-text-field>
-      <v-text-field v-model="description" label="description" required :counter="255"> </v-text-field>
+      <v-text-field v-model="description" label="description" required > </v-text-field>
       <v-select :items="items_categorie" v-model="categorie" label="Catégorie"></v-select>
       <v-btn type="submit" class="mr-4 center">
         Enregistrer
