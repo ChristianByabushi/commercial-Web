@@ -202,5 +202,7 @@ export default {
 		this.get_merchandise();
 		this.get_stock_merchandise()
 	}
+
+	
 }
 </script>
