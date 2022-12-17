@@ -7,14 +7,13 @@
 						<v-toolbar dark color="primary">
 							<v-toolbar-title align-center justify-center>TravailWeb</v-toolbar-title>
 						</v-toolbar>
-						<v-img id="logoHuman" src="@/assets/logosidebar.jpg"></v-img>
 
 						<v-card-text>
-							<v-form @submit.prevent="handleSubmit">
+							<v-form @submit.prevent="handleSubmit"> 
 								<div class="d-flex">
 									<v-icon>person</v-icon>
-									<v-text-field name="username" label="Login" required type="text" placeholder="username"
-										v-model="username">
+									<v-text-field name="username" label="Login" required type="text"
+										placeholder="username" v-model="username">
 									</v-text-field>
 								</div>
 								<div class="d-flex">
@@ -40,7 +39,7 @@
 </template>
 
 <script>
-import alert from '@/components/alert.vue' 
+import alert from '@/components/alert.vue'
 import axios from 'axios'
 export default {
 	name: 'Login',
@@ -68,18 +67,18 @@ export default {
 				this.msgAlert = "Veuillez d'abord remplir tous  les champs"
 				this.classAlert = "info"
 				return
-			} 
-			try { 
+			}
+			try {
 				const formData = new FormData()
 				formData.append('client_id', this.username)
 				formData.append('username', this.username)
 				formData.append('client_secret', this.password)
 				formData.append('password', this.password)
-				formData.append('grant_type', 'password') 
+				formData.append('grant_type', 'password')
 				const response = await axios.post('user/login', formData)
 				if (response.data['access_token']) {
 					localStorage.setItem('token', response.data['username'])
-					localStorage.setItem('username', this.username)  
+					localStorage.setItem('username', this.username)
 					if (this.$route.path !== '/')
 						this.$router.push('/')
 				} else {
@@ -104,19 +103,11 @@ export default {
 </script>
 
 <style scoped>
-.lockIcon {
-	width: 20px;
-	padding-bottom: 10px;
-	cursor: pointer;
-}
-
-
 #logoHuman {
 	position: absolute;
-	height: 120px;
+	height: 12rem;
 	width: 220px;
-	margin-left: 5rem;
-	margin-top: 2rem;
-	opacity: 0.2;
+	margin: 0 auto;
+	opacity: 0.09;
 }
 </style>
