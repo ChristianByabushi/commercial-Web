@@ -4,7 +4,7 @@
 			<h3>Marchandises</h3>
 		</v-subheader>
 		<v-alert dense type="info" color="#757575">
-			Cette partie contient toutes fonctions sur les affaires d'achat, de ravitaillement des marchandises
+			Cette partie contient toutes fonctions sur les affaires d'achat de ravitaillement des marchandises
 		</v-alert>
 		<v-row>
 			<v-col lg="12" cols="12">
