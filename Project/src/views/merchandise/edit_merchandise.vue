@@ -6,7 +6,7 @@
 				<v-row>
 					<v-text-field cols="12" md="4" v-model="title" :counter="255" required label="Libellé">{{title}}
 					</v-text-field>
-					<v-text-field v-model="description" label="description" required :counter="255">
+					<v-text-field v-model="description" label="description" required>
 						{{description}}
 					</v-text-field>
 					<v-select :items="items_categorie" v-model="categorie" label="Catégorie"></v-select>
