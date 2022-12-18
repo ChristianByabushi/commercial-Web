@@ -8,8 +8,6 @@
 			Cette partie contient les fonctionnalités sur l'analyse du déroulement des activités et des résulats sur les
 			stocks et les vantes
 		</v-alert>
-
-
 		<v-card>
 			<v-card-title style="display : inline">
 				Mouvement des stocks des biens
@@ -19,7 +17,6 @@
 					<v-select :items="merchandises" item-text="title" @change="getAllInvoices()" v-model="itemSelected"
 						item-value="id" label="Item à considérer">
 					</v-select>
-
 				</v-col>
 				<v-col cols="6" sm="4">
 					<v-text-field v-model="created_at" type="date" @change="getAllInvoices()"
@@ -32,22 +29,23 @@
 							mdi-refresh
 						</v-icon>Actualiser
 					</v-btn>
-				</v-col>  
+				</v-col>
 			</v-row>
 
 			<div class="element-print-invoices">
-				<v-card-title v-if="printDisplay=true">
+				<v-card-title v-if="printDisplay = true">
 					<v-row>
 						<v-col>
+
 							<div style="display: inline">
 								<h4>Sté HumanATM</h4>
-								<h6 id="dateReport">Date : {{created_at}}</h6>
-							</div> 
-							<div>
-								
+								<h6 id="dateReport">Date : {{ created_at }}</h6> 
+								<img class="imglogo" src="@/assets/logosidebar.jpg" alt="">
 							</div>
-						</v-col> 
-						
+							<div>
+							</div>
+						</v-col>
+					
 					</v-row>
 				</v-card-title>
 
@@ -62,20 +60,20 @@
 								<h5 class="font-weight-bold">Calcul du résultat</h5>
 							</div>
 							<div>
-								<h6 class="font-weight-bold">Prix total Achat : {{resultatInvoices.price_by}} </h6>
+								<h6 class="font-weight-bold">Prix total Achat : {{ resultatInvoices.price_by }} </h6>
 							</div>
 							<div>
-								<h6 class="font-weight-bold">Prix total Vente : {{resultatInvoices.price_sale}} </h6>
+								<h6 class="font-weight-bold">Prix total Vente : {{ resultatInvoices.price_sale }} </h6>
 							</div>
 							<div>
-								<h6 class="font-weight-bold">Résultat : {{resultatInvoices.result}}</h6>
+								<h6 class="font-weight-bold">Résultat : {{ resultatInvoices.result }}</h6>
 							</div>
 						</v-card-text>
 					</v-card>
 				</v-card-text>
 			</div>
 		</v-card>
-		<v-btn class="mt-4" color="error" @click="printDisplay=true;printEtatInvoices() ">
+		<v-btn class="mt-4" color="error" @click="printDisplay = true; printEtatInvoices()">
 			<v-icon>mdi-printer</v-icon> Imprimer
 		</v-btn>
 	</div>
@@ -151,9 +149,8 @@ export default {
 }
 </script> 
 <style scoped>
-.element-print-invoices {
-	background-image: url('@/assets/logosidebar.jpg'); 
-	background-size: 20px 20px;  	
+.imglogo {
+	opacity: 1; 
+	width: 100px;
 }
-
 </style>

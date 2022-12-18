@@ -32,7 +32,8 @@
 							<div style="display: inline">
 								<h4>Sté HumanATM</h4>
 								<h4>Client : {{inlineInfo.client}}</h4>
-								<h6>Date : {{inlineInfo.created_at}}</h6>
+								<h6>Date : {{inlineInfo.created_at}}</h6> 
+								<img class="imglogo" src="@/assets/logosidebar.jpg" alt="">
 							</div>
 						</v-col>
 					</v-row>
@@ -190,8 +191,12 @@ export default {
 
 <style>
 #element-to-convert {
-	background-image: url('@/assets/logosidebar.jpg');
 	background-size: 300px 300px;
+}
+
+.imglogo {
+	opacity: 0.8; 
+	width: 80px;
 }
 </style>
 

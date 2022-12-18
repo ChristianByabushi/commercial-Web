@@ -57,7 +57,7 @@ export default {
 	data() {
 		return {
 			menus: [
-				{ title: "Compte", icon: 'mdi-account', link: "infoadmin" },
+				{ title: "Compte", icon: 'mdi-account', link: "account" },
 				{ title: "Déconnexion", icon: "mdi-logout", link: "login" },
 			],
 			items: [

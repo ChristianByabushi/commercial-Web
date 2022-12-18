@@ -4,7 +4,7 @@
 			<h3>Marchandises</h3>
 		</v-subheader>
 		<v-alert dense type="info" color="#757575">
-			Cette partie contient toutes fonctions sur les affaires d'achat de ravitaillement des marchandises
+			Cette partie contient toutes fonctions sur les affaires d'achat, de ravitaillement des marchandises
 		</v-alert>
 		<v-row>
 			<v-col lg="12" cols="12">
@@ -29,6 +29,9 @@
 						<v-card elevation="2" class="rounded-lg ml-4 mb-10">
 							<v-card-title>Stock</v-card-title>
 							<v-card-text class>
+								<v-text-field rounded outlined placeholder="Rechercher ici" class="w-50"
+									append-icon="mdi-magnify" dense>
+								</v-text-field>
 								<new_stock v-if="addNewStockItem" :prop_merchandises="merchandises"></new_stock>
 								<v-data-table v-else :headers="header_stocks" :items="stock_merchandises"
 									:items-per-page="5" class="elevation-1">
@@ -60,7 +63,7 @@
 						</v-col>
 					</v-row>
 					<v-col cols="2">
-						<v-btn color="#ffff" @click="addNewMerchandise=!addNewMerchandise; get_merchandise()">
+						<v-btn color="#ffff" @click="addNewMerchandise = !addNewMerchandise; get_merchandise()">
 							<span v-if="addNewMerchandise">Liste des biens</span>
 							<span v-else>Ajouter bien</span>
 						</v-btn>
@@ -68,14 +71,18 @@
 					<v-card elevation="2" class="rounded-lg ml-2">
 						<v-card-title>Biens</v-card-title>
 						<v-card-text>
+							<v-text-field rounded outlined placeholder="Rechercher ici" class="w-50"
+								append-icon="mdi-magnify" dense>
+							</v-text-field>
 							<new_merchandise v-if="addNewMerchandise"></new_merchandise>
+
 							<v-data-table v-else :headers="header_merchandises" :items="merchandises"
 								:items-per-page="5" class="elevation-1">
 								<template v-slot:item.actions="{ item }"
 									class="d-flex justify-space-between align-center">
-									<v-icon small color="purple" @click="{edit_merchandise_Item(item)}">mdi-pencil
+									<v-icon small color="purple" @click="{ edit_merchandise_Item(item) }">mdi-pencil
 									</v-icon>
-									<v-icon small color="red" @click="{deleteMerchandiseItem(item)}">
+									<v-icon small color="red" @click="{ deleteMerchandiseItem(item) }">
 										mdi-delete
 									</v-icon>
 								</template>
@@ -89,11 +96,11 @@
 	</div>
 </template>
 <script>
-import axios from '@/axios/axios' 
 import new_merchandise from '@/views/merchandise/new_merchandise.vue'
 import new_stock from '@/views/merchandise/new_stock.vue'
 import edit_merchandise from '@/views/merchandise/edit_merchandise.vue'
 import edit_stock_item from '@/views/merchandise/edit_stock_item.vue'
+import axios from 'axios'
 
 export default {
 	name: "Dashboard",
@@ -145,8 +152,8 @@ export default {
 	}),
 	methods: {
 		async get_merchandise() {
-			try { 
-				const response = await axios.post('merchandise') 
+			try {
+				const response = await axios.post('merchandise')
 				this.merchandises = response.data
 			} catch (e) {
 				console.log(e)
@@ -168,7 +175,7 @@ export default {
 					alert("Suppression réussie")
 				}
 			} catch (e) {
-				console.log("Il y a une erreur. Il est imposible de supprimer un bien présent en stock!")
+				alert("Il y a une erreur. Il est imposible de supprimer")
 			}
 		},
 		async deleteMerchandiseStockItem(info) {
@@ -179,7 +186,7 @@ export default {
 					alert("Suppression réussie")
 				}
 			} catch (e) {
-				console.log("Il y a une erreur est survenue!")
+				alert("Il y a une erreur est survenue!")
 			}
 		},
 		edit_merchandise_Item(info) {
@@ -189,6 +196,7 @@ export default {
 			this.infoStockMerchandise = info
 			this.editStockItem = !this.editStockItem
 		},
+
 		setEditNewMerchandise(payload) {
 			this.editNewMerchandise = payload.editNewMerchandise
 			this.get_merchandise()
@@ -198,11 +206,10 @@ export default {
 			this.get_stock_merchandise()
 		},
 	},
-	beforeMount() {
+	created() {
 		this.get_merchandise();
 		this.get_stock_merchandise()
 	}
 
-	
 }
 </script>

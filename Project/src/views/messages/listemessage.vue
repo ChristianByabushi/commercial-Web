@@ -11,17 +11,15 @@
 							Moi
 						</v-card-title>
 						<small class="ml-4"> Le {{ item.created_at }}</small>
-
 						<v-card-text>
 							{{ item.message }}
 						</v-card-text>
 					</v-card>
 					<v-card class="elevation-2 ml-1" v-else>
 						<v-card-title class="text-h6">
-							{{ item.emailReceiver }} - {{item.firstnameWriter}}
+							{{ item.emailReceiver }} - {{item.firstnameReceiver}}
 						</v-card-title>
 						<small class="ml-4"> Le {{ item.created_at }}</small>
-
 						<v-card-text>
 							{{ item.message }}
 						</v-card-text>

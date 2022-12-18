@@ -33,34 +33,6 @@
 				</v-list>
 			</div>
 
-			<div v-if="userInfo.scope == 'receptionniste'">
-				<v-list v-for="[icon, text, color, link] in linksReceptioniste" :key="icon" link>
-					<v-list-item :to="{ name: link }">
-						<v-list-item-icon>
-							<v-icon :color="color">{{ icon }}</v-icon>
-						</v-list-item-icon>
-
-						<v-list-item-content @click="link == '/login' ? logout() : donothing()">
-							<v-list-item-title :color="color">{{ text }}</v-list-item-title>
-						</v-list-item-content>
-
-					</v-list-item>
-				</v-list>
-			</div>
-			<div v-if="userInfo.scope == 'decl'">
-				<v-list v-for="[icon, text, color, link] in linksDeclarant" :key="icon" link>
-					<v-list-item :to="{ name: link }">
-						<v-list-item-icon>
-							<v-icon :color="color">{{ icon }}</v-icon>
-						</v-list-item-icon>
-
-						<v-list-item-content @click="link == '/login' ? logout() : donothing()">
-							<v-list-item-title :color="color">{{ text }}</v-list-item-title>
-						</v-list-item-content>
-
-					</v-list-item>
-				</v-list>
-			</div>
 		</div>
 
 	</v-navigation-drawer>
@@ -74,23 +46,16 @@ export default {
 		linksAdmin: [
 			['mdi-microsoft-windows', 'Dashboard', '#C51162', 'dashboard'],
 			['mdi-chart-areaspline', 'Analyse', '#9C27B0', 'analysis'],
-			['mdi-chart-bar', 'Facturation', '#60722B', 'invoice'],
-			['mdi-message', 'Marchandises', '#607D8B', 'merchandise'],
-			['mdi-account-cog', 'Gestion compte', '#607D8B', 'account'],
+			['mdi-message', 'Messages', '#607D8B', 'indexMsg'],
+			['mdi-account-cog', 'Gestion compte', '#607D8B', 'listusers'],
 		],
 		linksAgent: [
-			['mdi-message', 'Messages', '#607D8B', 'indexMsg'],
-			['mdi-chart-bar', 'Acte de naissance', '#9C27B0', 'indexacteborning'],
-			['mdi-account-cog', 'Déclarant', '#9C27B0', 'indexdeclarant'],
+			['mdi-cloud-print-outline', 'Facturation', '#673AB7', 'invoice'],
+			['mdi-baby-buggy', 'Marchandises', '#BA68C8', 'merchandise'],
+			['mdi-chart-areaspline', 'Analyse', '#2196F3', 'analysis'],
+			['mdi-comment-processing-outline', 'Messages', '#15552', 'indexMsg'],
 		],
-		linksReceptioniste: [
-			['mdi-message', 'Messages', '#607D8B', 'indexMsg'],
-			['mdi-clipboard-list-outline', 'Déclarant', '#9C27B0', 'indexdeclarant'],
-		],
-		linksDeclarant: [
-			['mdi-microsoft-windows', 'Accueil', '#C51162', 'externaldeclarant'],
-			['mdi-message', 'Messages', '#607D8B', 'indexMsg'],
-		]
+
 	}),
 	methods: {
 		logout() {

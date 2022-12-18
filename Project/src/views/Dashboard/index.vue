@@ -29,20 +29,7 @@
       </v-col>
       <v-col lg="6" cols="12">
         <v-card>
-          <v-card-title>Biens auquels sont liés les activités</v-card-title>
-          <v-timeline dense>
-            <v-timeline-item v-for="item in DetailsItems" :key="item.id">
-              <span slot="opposite">item.title</span>
-              <v-card class="elevation-2">
-                <v-card-title class="text-h5">
-                  {{ item.categorie }}
-                </v-card-title>
-                <v-card-text>
-                  {{ item.description }}
-                </v-card-text>
-              </v-card>
-            </v-timeline-item>
-          </v-timeline>
+         <msg></msg>
         </v-card>
       </v-col>
     </v-row>
@@ -50,12 +37,14 @@
 </template>
 <script>
 import alert from '@/components/alert.vue'
-import axios from 'axios'
+import axios from 'axios' 
+import msg from '@/views/messages/listemessage.vue'
 
 export default {
   name: "Dashboard",
   components: {
-    alert
+    alert, 
+    msg
   },
   data: () => ({
     specificResult: [],

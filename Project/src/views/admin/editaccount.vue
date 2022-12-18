@@ -10,9 +10,7 @@
 			<v-select name="" v-model="scope" :items="items_scope" item-text="title" label="Type d'utilisateur"
 				item-value="scope">
 			</v-select>
-			<v-select v-model="stateaccount" :items="items_stateaccount" item-text="title" label="Etat du compte"
-				item-value="state">
-			</v-select>
+			
 			<v-alert :type="typeAlert" v-if="msgAlert" class="mb-4">
 				{{ msgAlert }}
 			</v-alert>
@@ -52,10 +50,7 @@ export default {
 				scope: 'agent',
 				title: 'Agent'
 			},
-			{
-				scope: 'decl',
-				title: 'Déclarant'
-			},
+			
 		]
 	}),
 	methods: {

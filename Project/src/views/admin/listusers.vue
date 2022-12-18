@@ -45,20 +45,12 @@ export default {
 			{ text: 'actions', value: 'actions' },
 		],
 		header_usersData: [],
-		scope: "decl",
+		scope: "agent",
 		items_scope: [
 			{
 				scope: 'agent',
 				title: 'Agent'
-			},
-			{
-				scope: 'decl',
-				title: 'Déclarant'
-			},
-			{
-				scope: 'receptionniste',
-				title: 'Réceptionniste'
-			},
+			}
 		]
 
 	}),

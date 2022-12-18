@@ -35,14 +35,7 @@ export default {
 				scope: 'agent',
 				title: 'Agent'
 			},
-			{
-				scope: 'decl',
-				title: 'Déclarant'
-			},
-			{
-				scope: 'receptionniste',
-				title: 'Réceptionniste'
-			},
+
 		]
 	}),
 	methods: {
@@ -71,7 +64,7 @@ export default {
 				formData.append('email', this.email)
 				formData.append('scope', this.scope)
 				const response = await axios.post('user/register', formData)
-
+				console.log(response.data)
 				if ((response.data.errorstate) == true) {
 					this.typeAlert = 'error'
 					this.msgAlert = response.data.error

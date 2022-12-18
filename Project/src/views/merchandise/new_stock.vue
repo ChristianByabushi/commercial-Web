@@ -2,7 +2,7 @@
 	<div>
 		<form @submit.prevent="submit_stock()" method="post">
 			<v-select :items="merchandises_title" v-model="title_merchandise" label="Bien à stocker"></v-select>
-			<v-text-field v-model="description" label="Description" required > </v-text-field>
+			<v-text-field v-model="description" label="Description" required :counter="255"> </v-text-field>
 			<v-text-field v-model="date" type="date" label="Date" required> </v-text-field>
 			<v-text-field v-model="pu_by" label="Prix unitaire ($)" required type="number"> </v-text-field>
 			<v-text-field v-model="amount_by" type="number" label="Nbre d'unités"> </v-text-field>
@@ -18,9 +18,7 @@
 	</div>
 </template>
 <script>
-import axios from '@/axios/axios'  
-import { mapState } from 'vuex'
-
+import axios from 'axios'
 export default {
 	name: "new_stock",
 	props: ["prop_merchandises"],
@@ -36,23 +34,22 @@ export default {
 		merchandises_title: [],
 		amount_by: '',
 		items_salers: ['Dodoma', 'flexi', 'compfy', 'Kampala', 'Dubai', 'Japon', 'Toyota', 'Kenya'],
+
 	}),
-	computed: mapState([
-		'merchandises'
-	]),
-	mounted() {  
+	mounted() {
 		this.prop_merchandises.forEach(element => {
 			this.merchandises_title.push(element.title)
 		});
-	}, 
+	},
 	methods: {
-		findIdMerchandise() { 
+		findIdMerchandise() {
 			this.prop_merchandises.forEach(element => {
 				if (element.title == this.title_merchandise) {
 					this.id_merchandise = element.id
 				}
 			});
-		},  
+		},
+
 		async submit_stock() {
 			try {
 				if (this.id_merchandise != '') {

@@ -4,7 +4,7 @@
 			<h4>Editer stock record <small>{{id_stock}}</small> </h4>
 			<v-row>
 				<v-form @submit.prevent="function_edit_stock_item()" method="post">
-					<v-select :items="merchandises_title" v-model="title_merchandise" label="bien à stocker"></v-select>
+					<v-select :items="merchandises_title" v-model="title_merchandise" label="Bien à stocker"></v-select>
 					<v-text-field v-model="created_at" type="date" label="Date" required> </v-text-field>
 					<v-text-field v-model="pu_by" label="Prix unitaire ($)" required type="number"> </v-text-field>
 					<v-text-field v-model="amount_by" type="number" step="any" label="Nbre d'unités"> </v-text-field>

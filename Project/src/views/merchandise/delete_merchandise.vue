@@ -9,7 +9,7 @@
 			<v-card-title class="text-h5">
 				Suppression de l'item
 			</v-card-title>
-			<v-card-text>Voulez vous vraiment supprimer cet item ?
+			<v-card-text>Voulez vous vraiment supprimer cet item ?.
 			</v-card-text>
 			<v-card-actions>
 				<v-spacer></v-spacer>
