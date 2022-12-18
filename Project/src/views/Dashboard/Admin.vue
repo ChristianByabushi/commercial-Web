@@ -3,7 +3,7 @@
 		<v-navigation-drawer app v-model="drawer">
 			<v-list-item>
 				<v-list-item-content>
-					<v-list-item-title>VirtualApp</v-list-item-title>
+					<v-list-item-title>CommercialApp</v-list-item-title>
 					<v-list-item-subtitle>vandu</v-list-item-subtitle>
 				</v-list-item-content>
 			</v-list-item>
